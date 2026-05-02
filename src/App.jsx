@@ -2,16 +2,43 @@ import { useState } from 'react'
 import './App.css'
 import ToDo from './ToDo'
 import Test from "./text"
+import Actors from "./Actors"
+import Singer from "./Singer"
+import Product from './Product'
 function App() {
-  const [count, setCount] = useState(0)
-
+  // const [count, setCount] = useState(0)
+const actors = ["sonjoi", "karina", "rittik", "kajol"];
+const singers = [
+  {id:1, name:"Tahsan", age:47, fevSong : "Alo alo"},
+  {id:2, name:"arijit singh", age:45, fevSong :"thodi jagahd dede mujhe"},
+  {id:3, name:"atif aslam", age:43, fevSong : "rongo sorbo ka pani"},
+];
+const ProductList = [
+  {id:1, name: "book", price:299, brand:"Dizest"},
+  {id:2, name: "pen", price:10, brand:"matador"},
+  {id:3, name: "ruler", price:30, brand:"good luck"},
+  {id:4, name: "Exercise Book", price:100, brand:"good luck"},
+]
   return (
     <>
 <h2>vite + react</h2>
-<ToDo name="loren react" isDown = {true} time = "30 second"></ToDo>
+
+ {
+  ProductList.map(list=><Product key={list.id} list={list}></Product>)
+
+ }
+
+{
+  singers.map(singer=><Singer key={singer.id} singer={singer}></Singer>)
+}
+{
+  actors.map(actor=><Actors name={actor}></Actors>)
+}
+
+{/* <ToDo name="loren react" isDown = {true} time = "30 second"></ToDo>
 <ToDo name="explore js" isDown = {true} time = "30 second"></ToDo>
 <ToDo name="react is down and take a small rest" isDown ={false}></ToDo>
-<Test></Test>
+<Test></Test> */}
 
 {/* <Player name="sakib" run="5000"></Player>
 <Player name="tamim" ></Player>
